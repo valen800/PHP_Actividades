@@ -8,6 +8,8 @@
 <?php
     const COLLENGHT = 11;
     const ROWLENGHT = 10;
+    $blue = "#0000FF";
+    $red = "#ff2d00";
 
     $col = 23;
     $row = 1;
@@ -27,12 +29,18 @@
     }
 
     for ($i = 0; $i < ROWLENGHT; $i++) {
+        $colDiv = 23;
         echo "<tr>";
         echo "<td>".$row."</td>";
         $row++;
 
         for ($j = 0; $j < COLLENGHT; $j++) {
-            echo "<td>".$rowDiv."%".$colDiv."</td>";
+            if ($colDiv % $rowDiv == 0) {
+                echo '<td style="background-color:'.$blue.';">*</td>';
+            } else {
+                echo '<td style="background-color:'.$red.';">-</td>'; 
+            }
+            $colDiv++;
         }
         echo "</tr>";
         $rowDiv++;
