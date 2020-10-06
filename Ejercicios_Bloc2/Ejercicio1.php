@@ -6,15 +6,14 @@
 </style>
 
 <?php
-    const ROWLENGHT = 11;
-    const COLLENGHT = 10;
+    const COLLENGHT = 11;
+    const ROWLENGHT = 10;
 
-    $row = 23;
-    $col = 1;
+    $col = 23;
+    $row = 1;
 
-    $rowDiv = 22;
-    $colDiv = 1;
-
+    $colDiv = 23;
+    $rowDiv = 1;
 ?>
 
     <table class="table">
@@ -22,26 +21,21 @@
         <td>/</td>
 
 <?php
-    for ($i = 0; $i < ROWLENGHT; $i++) {
-        echo '<td>'.$row.'</td>';
-        $row++;
+    for ($i = 0; $i < COLLENGHT; $i++) {
+        echo '<td>'.$col.'</td>';
+        $col++;
     }
 
-    for ($i = 0; $i < COLLENGHT; $i++) {
+    for ($i = 0; $i < ROWLENGHT; $i++) {
         echo "<tr>";
-        echo "<td>".$col."</td>";
-        $col++;
+        echo "<td>".$row."</td>";
+        $row++;
 
-        for ($j = 0; $j < ROWLENGHT; $j++) {
-            if ($rowDiv % $colDiv == 0) {
-                echo "<td>*</td>";
-            } else {
-                echo "<td>-</td>";
-            }
-            $rowDiv++;
+        for ($j = 0; $j < COLLENGHT; $j++) {
+            echo "<td>".$rowDiv."%".$colDiv."</td>";
         }
         echo "</tr>";
-        $colDiv++;
+        $rowDiv++;
     }
 
 ?>
