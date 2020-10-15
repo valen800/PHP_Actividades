@@ -9,7 +9,5 @@ $c = --$a + $b++;
 echo "--a + b++ = $c<br>Con b = $b y a = $a<br>";
 
 ++$cadena;
-
 echo "++cadena = $cadena";
-
 ?>
