@@ -11,6 +11,17 @@
   </head>
   <body>
     <div class="container">
+
+    <hr style="width:50%;text-align:left;margin-left:0">
+        <form name="formulario" method="post" action="BT3-E1.php">
+            <label for="IText">Introduce el texto a mostrar:</label>
+            <input type="text" id="inputText" name="inputText" value="<?php echo (isset($text) == true) ? $text : ''; ?>"/><br />
+            <label for="fname">Alinear texto:</label>
+            <input type="checkbox" name="format" value="negrita" checked/><label for="fname">Negrita</label>
+            <input type="checkbox" name="format" value="cursiva" /><label for="fname">Cursiva</label>
+            <input type="checkbox" name="format" value="subrayado" /><label for="fname">Subrayado</label><br /><br />
+            <input type="submit" value="Aceptar">
+        </form>
       
     </div>
     <!-- Optional JavaScript -->
