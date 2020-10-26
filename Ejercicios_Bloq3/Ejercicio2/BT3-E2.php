@@ -33,7 +33,6 @@
       ?>
 
       <hr style="width:50%;text-align:left;margin-left:0">
-      <h1 font-style></h1>
           <form name="formulario" method="post" action="BT3-E2.php">
               <label for="IText">Introduce el texto a mostrar:</label>
               <input type="text" id="inputText" name="inputText" value="<?php echo (isset($text) == true) ? $text : ''; ?>"/><br />
