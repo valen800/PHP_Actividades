@@ -35,8 +35,6 @@
                 echo '<h2 style="text-align:'.$direccion.'">'.$text.'</h2>';
             echo '</div>';
         }
-
-        
     ?>
     
         <hr style="width:50%;text-align:left;margin-left:0">
@@ -44,9 +42,9 @@
             <label for="IText">Introduce el texto a mostrar:</label>
             <input type="text" id="inputText" name="inputText" value="<?php echo (isset($text) == true) ? $text : ''; ?>"/><br />
             <label for="fname">Alinear texto:</label>
-            <input type="radio" name="direccion" value="left" checked/><label for="fname">Izquierda</label>
-            <input type="radio" name="direccion" value="center" /><label for="fname">Centro</label>
-            <input type="radio" name="direccion" value="right" /><label for="fname">Derecha</label><br /><br />
+            <input type="radio" name="direccion" value="left" <?php if($direccion == "left") echo 'checked="checked"'; ?>/><label for="fname">Izquierda</label>
+            <input type="radio" name="direccion" value="center" <?php if($direccion == "center") echo 'checked="checked"'; ?> /><label for="fname">Centro</label>
+            <input type="radio" name="direccion" value="right"  <?php if($direccion == "right") echo 'checked="checked"'; ?> /><label for="fname">Derecha</label><br /><br />
             <input type="submit" value="Aceptar">
         </form>
     </div>

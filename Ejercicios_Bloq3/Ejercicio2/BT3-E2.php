@@ -11,17 +11,38 @@
   </head>
   <body>
     <div class="container">
+      <?php
+          $text = $_POST['inputText'];
+          $styles = $_POST['format'];
 
-    <hr style="width:50%;text-align:left;margin-left:0">
-        <form name="formulario" method="post" action="BT3-E1.php">
-            <label for="IText">Introduce el texto a mostrar:</label>
-            <input type="text" id="inputText" name="inputText" value="<?php echo (isset($text) == true) ? $text : ''; ?>"/><br />
-            <label for="fname">Alinear texto:</label>
-            <input type="checkbox" name="format" value="negrita" checked/><label for="fname">Negrita</label>
-            <input type="checkbox" name="format" value="cursiva" /><label for="fname">Cursiva</label>
-            <input type="checkbox" name="format" value="subrayado" /><label for="fname">Subrayado</label><br /><br />
-            <input type="submit" value="Aceptar">
-        </form>
+
+          foreach ($styles as $style) {
+            if ($style == "bold") {
+              $bold = $style;
+            }
+            if ($style == "italic") {
+              $italic = $style;
+            }
+            if ($style == "underline") {
+              $underline = $style;
+            }
+          }
+
+          echo '<h3 style="text-decoration: '.$underline.';font-style: '.$italic.';font-weight: '.$bold.';">'.$text.'</h3>';
+          
+      ?>
+
+      <hr style="width:50%;text-align:left;margin-left:0">
+      <h1 font-style></h1>
+          <form name="formulario" method="post" action="BT3-E2.php">
+              <label for="IText">Introduce el texto a mostrar:</label>
+              <input type="text" id="inputText" name="inputText" value="<?php echo (isset($text) == true) ? $text : ''; ?>"/><br />
+              <label for="fname">Alinear texto:</label>
+              <input type="checkbox" name="format[]" value="bold" <?php if(isset($bold)) echo 'checked="checked"'; ?>/><label for="fname">Negrita</label>
+              <input type="checkbox" name="format[]" value="italic" <?php if(isset($italic)) echo 'checked="checked"'; ?>/><label for="fname">Cursiva</label>
+              <input type="checkbox" name="format[]" value="underline" <?php if(isset($underline)) echo 'checked="checked"'; ?>/><label for="fname">Subrayado</label><br /><br />
+              <input type="submit" value="Aceptar">
+          </form>
       
     </div>
     <!-- Optional JavaScript -->
