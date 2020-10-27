@@ -12,27 +12,32 @@
   <body>
       <div class="container">
         <?php
-            $divisasArray = ['dolar', 'euro', 'libra'];
             $inputDolares = $_POST['inputDolares'];
             $inputLibras = $_POST['inputLibras'];
             $inputCantidad = $_POST['inputCantidad'];
+            $inputResultado = 0;
             $divisasCantidad = $_POST['divisasCantidad'];
             $divisasResultado = $_POST['divisasResultado'];
+            $divisasArray = [
+                'dolar' => $inputDolares, 
+                'euro' => 1, 
+                'libra' => $inputLibras];
 
-            echo $inputDolares." ";
-            echo $inputLibras." ";
-            echo $inputCantidad." ";
-            echo $divisasCantidad." ";
-            echo $divisasResultado." ";
+            if ($divisasCantidad == $divisasResultado) {
+                $inputResultado = $inputCantidad;
+            }
             
             foreach ($divisasArray as $key => $value) {
-                if (4) {
-                    $primeraDivisaValor = "";
+
+                if ($divisasCantidad == $key) {
+                    $primeraDivisaValor = $value;
                 }
-                if (4) {
-                    $segundaDivisaValor = "";
+                if ($divisasResultado == $key) {
+                    $segundaDivisaValor = $value;
                 }
             }
+
+            
             
         ?>
         <div>
@@ -51,17 +56,17 @@
                     <input type="number" id="inputCantidad" name="inputCantidad" value="<?php echo $inputCantidad ?>">
                     <label for="fname">en</label>
                     <select name="divisasCantidad" id="divisasCantidad">
-                        <option value="dolar">dólares</option>
-                        <option value="euro">euros</option>
-                        <option value="libra">libras</option>
+                        <option value="dolar" <?php if($divisasCantidad == 'dolar') echo "selected" ?> >dólares</option>
+                        <option value="euro" <?php if($divisasCantidad == 'euro') echo "selected" ?> >euros</option>
+                        <option value="libra" <?php if($divisasCantidad == 'libra') echo "selected" ?>>libras</option>
                     </select>
                     <label for="fname">=> Cantidad:</label>
-                    <input type="number" id="inputResultado" name="inputResultado" disabled>
+                    <input type="number" id="inputResultado" name="inputResultado" disabled value="<?php echo $inputResultado?>">
                     <label for="fname">en</label>
                     <select name="divisasResultado" id="divisasResultado">
-                        <option value="dolar">dólares</option>
-                        <option value="euro">euros</option>
-                        <option value="libra">libras</option>
+                        <option value="dolar" <?php if($divisasResultado == 'dolar') echo "selected" ?> >dólares</option>
+                        <option value="euro" <?php if($divisasResultado == 'euro') echo "selected" ?> >euros</option>
+                        <option value="libra" <?php if($divisasResultado == 'libra') echo "selected" ?>>libras</option>
                     </select>
                     <br><br>
                     <input type="submit" value="Aceptar">
