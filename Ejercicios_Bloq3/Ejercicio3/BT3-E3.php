@@ -38,16 +38,17 @@
 
             if ($type != 'image/gif') {
                 echo 'Error: No se trata de un fichero .GIF.';
+                echo $type;
                 exit;
             }
 
-            if ($size > 40) {
+            /* if ($size > 40) {
                 echo 'Error: El fichero gif pesa más de 40KB.';
                 exit;
-            }
+            } */
 
             if (is_uploaded_file($tmp_file) === true) {
-                $nombre = '../imatges/'.$nameGif;
+                $nombre = './imatges/'.$nameGif;
                 if (is_file($nombre) === true) {
                     $idUnico = time();
                     $nombre = $idUnico.'_'.$nombre;
@@ -55,11 +56,11 @@
 
                 if (move_uploaded_file($tmp_file, $nombre)) {
                     //Muestra la imagen
-                    header("Content-type: image/gif");
+                    /* header("Content-type: image/gif");
                     $fp = fopen($nombre, 'rb');
                     $contenido = fread ($fp, filesize ($nombre));
                     fclose ($fp);
-                    echo $contenido;
+                    echo $contenido; */
                 } else {
                     echo 'Error: No se puede mover el fichero a su destino';
                 }
@@ -70,7 +71,7 @@
 
         <hr style="width:50%;text-align:left;margin-left:0">
         <h1 font-style></h1>
-            <form name="formulario" action="BT3-E3.php" method="post" 
+            <form name="formulario" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" 
             enctype="multipart/form-data">
                 <label>Pujar un arxiu al servidor</label><br><br>
                 <label>Buscar en:</label>
