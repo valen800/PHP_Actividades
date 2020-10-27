@@ -39,13 +39,12 @@
             if ($type != 'image/gif') {
                 echo 'Error: No se trata de un fichero .GIF.';
                 echo $type;
-                exit;
             }
 
-            /* if ($size > 40) {
+            if ($size > 40) {
                 echo 'Error: El fichero gif pesa más de 40KB.';
                 exit;
-            } */
+            }
 
             if (is_uploaded_file($tmp_file) === true) {
                 $nombre = './imatges/'.$nameGif;
@@ -61,6 +60,7 @@
                     $contenido = fread ($fp, filesize ($nombre));
                     fclose ($fp);
                     echo $contenido; */
+                    echo 'Se ha subido correctamente';
                 } else {
                     echo 'Error: No se puede mover el fichero a su destino';
                 }
@@ -68,16 +68,17 @@
                 echo 'Error: Posible ataque. Nombre: '.$nameGif;
             }
         ?>
-
-        <hr style="width:50%;text-align:left;margin-left:0">
-        <h1 font-style></h1>
-            <form name="formulario" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" 
-            enctype="multipart/form-data">
-                <label>Pujar un arxiu al servidor</label><br><br>
-                <label>Buscar en:</label>
-                <input type="file" id="inputFile" name="inputFile" /><br><br>
-                <input type="submit" value="Enviar">
-            </form>
+        <div>
+            <hr style="width:50%;text-align:left;margin-left:0">
+            <h1 font-style></h1>
+                <form name="formulario" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" 
+                enctype="multipart/form-data">
+                    <label>Pujar un arxiu al servidor</label><br><br>
+                    <label>Buscar en:</label>
+                    <input type="file" id="inputFile" name="inputFile" /><br><br>
+                    <input type="submit" value="Enviar">
+                </form>
+        </div>
     </div>
       
     <!-- Optional JavaScript -->
@@ -87,3 +88,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<style>
+    div.container { 
+        border-style: solid; 
+        border-width: 1px;
+    }
+
+    div {
+        margin: 10px;
+    }
+</style>

@@ -31,7 +31,7 @@
           echo '<h3 style="text-decoration: '.$underline.';font-style: '.$italic.';font-weight: '.$bold.';">'.$text.'</h3>';
           
       ?>
-
+      <div>
       <hr style="width:50%;text-align:left;margin-left:0">
           <form name="formulario" method="post" action="BT3-E2.php">
               <label for="IText">Introduce el texto a mostrar:</label>
@@ -42,6 +42,7 @@
               <input type="checkbox" name="format[]" value="underline" <?php if(isset($underline)) echo 'checked="checked"'; ?>/><label for="fname">Subrayado</label><br /><br />
               <input type="submit" value="Aceptar">
           </form>
+      </div>
       
     </div>
     <!-- Optional JavaScript -->
@@ -51,3 +52,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<style>
+    div.container { 
+        border-style: solid; 
+        border-width: 1px;
+    }
+
+    div {
+        margin: 10px;
+    }
+</style>
