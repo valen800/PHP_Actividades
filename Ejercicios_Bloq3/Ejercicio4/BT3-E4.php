@@ -23,6 +23,14 @@
                 'euro' => 1, 
                 'libra' => $inputLibras];
 
+            if ($inputCantidad == "") {
+                $inputCantidad = 0;
+            }
+
+            if ($inputCantidad == 0) {
+                $inputResultado = 0;
+            }
+
             if ($divisasCantidad == $divisasResultado) {
                 $inputResultado = $inputCantidad;
             }
@@ -38,7 +46,7 @@
             }
 
             
-            
+
         ?>
         <div>
             <form name="formulario" method="post" action="BT3-E4.php">
