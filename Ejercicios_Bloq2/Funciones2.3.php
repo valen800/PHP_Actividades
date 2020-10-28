@@ -16,11 +16,11 @@
 <?php
     while (($archivo = $dirint->read()) !== false) {
         if (strpos($archivo,"gif") || strpos($archivo,"jpg") || strpos($archivo,"png") || strpos($archivo,"bmp")) {
-            echo '<td><a href="'.$directory."/".$archivo.'" target="_blank"><img height="100" width="100" src="'.$directory."/".$archivo.'"></a></td>';
+            echo '<td><a href="'.$directory."/".$archivo.'" target="_blank"><img height="100" width="100" src="'.$directory."/".$archivo.'"></a></td>'.PHP_EOL;
             $cc++;
 
             if ($cc == 4) {
-                echo "<tr></tr>";
+                echo "<tr></tr>".PHP_EOL;
                 $cc = 0;
             }
         }

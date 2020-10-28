@@ -48,7 +48,7 @@
     }
 
     foreach ($pilotosPuntuaciones as $key => $value) {
-        echo $key." = ".$value." puntos <br>";
+        echo $key." = ".$value." puntos <br>".PHP_EOL;
     }
 
 

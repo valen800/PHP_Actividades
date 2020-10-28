@@ -12,16 +12,21 @@
   <body>
       <div class="container">
         <?php
-            $inputDolares = $_POST['inputDolares'];
-            $inputLibras = $_POST['inputLibras'];
-            $inputCantidad = $_POST['inputCantidad'];
+            $inputEuroDolares = number_format($_POST['inputDolares'], 2, ".", '');
+            $inputEuroLibras = number_format($_POST['inputLibras'], 2, ".", '');
+
+            $inputCantidad = number_format($_POST['inputCantidad'], 2, ".", '');
             $inputResultado = 0;
+
             $divisasCantidad = $_POST['divisasCantidad'];
             $divisasResultado = $_POST['divisasResultado'];
-            $divisasArray = [
-                'dolar' => $inputDolares, 
-                'euro' => 1, 
-                'libra' => $inputLibras];
+
+            $euro_usd = $inputEuroDolares;
+            $euro_libra = $inputEuroLibras;
+            $usd_euro = 0.85;
+            $usd_libra = 0.77;
+            $libra_euro = 1.11;
+            $libra_usd = 1.30;
 
             if ($inputCantidad == "") {
                 $inputCantidad = 0;
@@ -34,47 +39,59 @@
             if ($divisasCantidad == $divisasResultado) {
                 $inputResultado = $inputCantidad;
             }
-            
-            foreach ($divisasArray as $key => $value) {
 
-                if ($divisasCantidad == $key) {
-                    $primeraDivisaValor = $value;
-                }
-                if ($divisasResultado == $key) {
-                    $segundaDivisaValor = $value;
-                }
+            switch ($divisasCantidad && $divisasResultado) {
+                case $divisasCantidad == 'EUR' && $divisasResultado == 'USD':
+                    $inputResultado = $inputCantidad * $euro_usd;
+                    break;
+                case $divisasCantidad == 'EUR' && $divisasResultado == 'LIBRA':
+                    $inputResultado = $inputCantidad * $euro_libra;
+                    break;
+                case $divisasCantidad == 'USD' && $divisasResultado == 'EUR':
+                    $inputResultado = $inputCantidad * $usd_euro;
+                    break;     
+                case $divisasCantidad == 'USD' && $divisasResultado == 'LIBRA':
+                    $inputResultado = $inputCantidad * $usd_libra;
+                    break;
+                case $divisasCantidad == 'LIBRA' && $divisasResultado == 'EUR':
+                    $inputResultado = $inputCantidad * $libra_euro;
+                    break;
+                case $divisasCantidad == 'LIBRA' && $divisasResultado == 'USD':
+                    $inputResultado = $inputCantidad * $libra_usd;
+                    break;
+                default:
+                    break;
             }
-
-            
-
+            $inputResultado = number_format($inputResultado, 2, ".", '');
         ?>
+
         <div>
             <form name="formulario" method="post" action="BT3-E4.php">
                 <fieldset>
                     <legend>Cambio de divisas tomando el euro como referencia</legend>
                     <label for="fname">1 euro</label>
-                    <input type="number" id="inputDolares" name="inputDolares" value="1.271640">
+                    <input type="number" id="inputDolares" name="inputDolares" step="any" value="1.271640">
                     <label for="fname">dólares</label>
                     <br>
                     <label for="fname">1 euro</label>
-                    <input type="number" id="inputLibras" name="inputLibras" value="0.799778">
+                    <input type="number" id="inputLibras" name="inputLibras" step="any" value="0.799778">
                     <label for="fname">libras</label>
                     <br>
                     <label for="fname">Cantidad:</label>
-                    <input type="number" id="inputCantidad" name="inputCantidad" value="<?php echo $inputCantidad ?>">
+                    <input type="number" id="inputCantidad" name="inputCantidad" step="any" value="<?php echo $inputCantidad ?>">
                     <label for="fname">en</label>
                     <select name="divisasCantidad" id="divisasCantidad">
-                        <option value="dolar" <?php if($divisasCantidad == 'dolar') echo "selected" ?> >dólares</option>
-                        <option value="euro" <?php if($divisasCantidad == 'euro') echo "selected" ?> >euros</option>
-                        <option value="libra" <?php if($divisasCantidad == 'libra') echo "selected" ?>>libras</option>
+                        <option value="USD" <?php if($divisasCantidad == 'USD') echo "selected" ?> >dólares</option>
+                        <option value="EUR" <?php if($divisasCantidad == 'EUR') echo "selected" ?> >euros</option>
+                        <option value="LIBRA" <?php if($divisasCantidad == 'LIBRA') echo "selected" ?>>libras</option>
                     </select>
                     <label for="fname">=> Cantidad:</label>
                     <input type="number" id="inputResultado" name="inputResultado" disabled value="<?php echo $inputResultado?>">
                     <label for="fname">en</label>
                     <select name="divisasResultado" id="divisasResultado">
-                        <option value="dolar" <?php if($divisasResultado == 'dolar') echo "selected" ?> >dólares</option>
-                        <option value="euro" <?php if($divisasResultado == 'euro') echo "selected" ?> >euros</option>
-                        <option value="libra" <?php if($divisasResultado == 'libra') echo "selected" ?>>libras</option>
+                        <option value="USD" <?php if($divisasResultado == 'USD') echo "selected" ?> >dólares</option>
+                        <option value="EUR" <?php if($divisasResultado == 'EUR') echo "selected" ?> >euros</option>
+                        <option value="LIBRA" <?php if($divisasResultado == 'LIBRA') echo "selected" ?>>libras</option>
                     </select>
                     <br><br>
                     <input type="submit" value="Aceptar">
