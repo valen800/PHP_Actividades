@@ -1,9 +1,21 @@
-<?php require_once 'utils.php' ?>
+<?php 
+    function getPost() {
+        $file = $_GET['nombre'];
+        $path = './posts/'.$file;
+        $contenido = file_get_contents($path);
+
+        $result .= "<h1>Nombre del POST: $file</h1>\n";
+
+        $result .= "<p>Contenido: $contenido</p>";
+
+        return $result;
+    }
+?>
 
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Sitio web</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,9 +25,9 @@
   </head>
   <body>
     <div class="container">
-        <h1>Sitio web - Home</h1>
-        <a href="nuevo.php">Nuevo</a>
-        <?php echo getListPosts(); ?>
+        <?php
+            echo getPost();
+        ?>
     </div>
       
     <!-- Optional JavaScript -->

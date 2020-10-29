@@ -3,7 +3,7 @@
     $description = $_POST['description'];
     $path = "./posts/$titulo";
 
-    $data = $titulo.";".$description;
+    $data = $description;
 
     if (file_put_contents($path, $data)) {
         log("Guardado");
