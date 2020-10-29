@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-        <h1>Sitio web - Nuevo</h1>
+        <h1>Sitio web - Editar</h1>
         <form action="guardar.php" method="POST">
             <label>Titulo:</label>
             <br>
@@ -20,7 +20,7 @@
             <label>Description:</label><br>
             <textarea id="description" name="description" rows="4" cols="50"></textarea>
             <br><br>
-            <button type="submit">Guardar</button>
+            <button type="submit">Editar</button>
         </form>
         <br><br>
         <a href="index.php">Home</a>
