@@ -16,6 +16,7 @@
         <h1>Sitio web - Home</h1>
         <a href="nuevo.php">Nuevo</a>
         <?php echo getListPosts(); ?>
+        <?php echo getTheLastTwoPost(); ?>
     </div>
       
     <!-- Optional JavaScript -->

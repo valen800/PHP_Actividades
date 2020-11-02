@@ -18,6 +18,20 @@
         return $result;
     }
 
+    function getTheLastTwoPost() {
+        $path = "./posts";
+        $ficheros = array_diff(scandir($path), array('..','.'));
+
+        foreach ($ficheros as $key => $file) {
+            $fullPath = "./posts/".$file;
+            $listDate[$file] = filemtime($fullPath);
+        }
+        array_multisort($listDate);
+        //echo 'Fecha: '.date ("F d Y H:i:s.", filemtime($fullPath)).'<br>';
+
+        return $fechas;
+    }
+
     function getPostHTML() {
         $file = $_GET['nombre'];
         $path = './posts/'.$file;
@@ -38,7 +52,10 @@
         header('location: index.php');
     }
 
-    function editPost() {
+    function getDescription($file) {
+        $path = './posts/'.$file;
+        $contenido = file_get_contents($path);
 
+        return $contenido;
     }
 ?>

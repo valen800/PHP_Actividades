@@ -1,3 +1,5 @@
+<?php require_once 'utils.php' ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,10 +17,10 @@
         <form action="guardar.php" method="POST">
             <label>Titulo:</label>
             <br>
-            <input type="text" name="title"/>
+            <input type="text" name="title" value="<?php echo $_GET['nombre'] ?>"/>
             <br><br>
             <label>Description:</label><br>
-            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+            <textarea id="description" name="description" rows="4" cols="50"><?php echo getDescription($_GET['nombre']) ?></textarea>
             <br><br>
             <button type="submit">Editar</button>
         </form>
