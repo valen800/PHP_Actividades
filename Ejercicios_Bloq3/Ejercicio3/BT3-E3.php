@@ -58,7 +58,7 @@
                     /* header("Content-type: image/gif");
                     $fp = fopen($nombre, 'rb');
                     $contenido = fread ($fp, filesize ($nombre));
-                    fclose ($fp);
+                    fclose ($fp); 
                     echo $contenido; */
                     echo 'Se ha subido correctamente';
                 } else {
