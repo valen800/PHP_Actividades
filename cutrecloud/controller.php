@@ -27,13 +27,13 @@
         $id = time();
 
         switch ($typeFile) {
-            case 'audio/mp3':
+            case strpos($typeFile, 'audio'):
                 return 'media/audio/'.$id.$nameFile;
                 break;
-            case 'image/png':
-                return 'media/images/'.$id.$nameFile;
+            case strpos($typeFile, 'image'):
+                return 'media/image/'.$id.$nameFile;
                 break;
-            case 'video/mp4':
+            case strpos($typeFile, 'video'):
                 return 'media/video/'.$id.$nameFile;
                 break;
             default:
