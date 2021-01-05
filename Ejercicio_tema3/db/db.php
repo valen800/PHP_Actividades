@@ -13,8 +13,7 @@
     checkErrorDatabase('Failed to select the database', $db);
 
     // We make the query
-    $query = "SELECT id, nom, cognoms FROM contactes";
+    $query = "SELECT id, nom, cognoms FROM contactes LIMIT 0,3";
     $result = mysqli_query($db, $query);
     checkErrorDatabase('Failed to make the query', $db);
-
 ?>

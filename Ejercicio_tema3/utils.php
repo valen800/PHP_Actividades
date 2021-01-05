@@ -1,20 +1,17 @@
 <?php
 
-function getList($result, $numberRow) {
-    $count = 0;
-
+function getList($result, $db) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            if ($count < $numberRow) {
-                echo '<tr>';
-                echo '<td>'.$row['id'].'</td>';
-                echo '<td>'.$row['nom'].'</td>';
-                echo '<td>'.$row['cognoms'].'</td>';
-                echo '<tr>';
-                $count += 1;
-            }
+            echo '<tr>';
+            echo '<td>'.$row['id'].'</td>';
+            echo '<td>'.$row['nom'].'</td>';
+            echo '<td>'.$row['cognoms'].'</td>';
+            echo '<tr>';
         }
     }
+    mysqli_free_result($result);
+    mysqli_close($db);
 }
 
 function checkConnectionDatabase($message) {

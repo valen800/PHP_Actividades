@@ -25,7 +25,7 @@
         </tr>
       </thead>
       <tbody>
-        <?php getList($result, 5) ?>
+        <?php getList($result, $db) ?>
       </tbody>
     </table>
   </div>
