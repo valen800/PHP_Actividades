@@ -25,7 +25,15 @@
         </tr>
       </thead>
       <tbody>
-        <?php getList($result, $db) ?>
+        <?php printList(getList($db), $db) ?>
+        <tr>
+          <td colspan="3" class="text-center">
+            <button class="btn" style="background: url(./img/home.png)"></button>
+            <button class="btn" style="background: url(./img/left.png)"></button>
+            <button class="btn" style="background: url(./img/right.png)"></button>
+            <button class="btn" style="background: url(./img/end.png)"></button>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
