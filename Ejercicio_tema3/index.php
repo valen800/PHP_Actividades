@@ -25,13 +25,21 @@
         </tr>
       </thead>
       <tbody>
-        <?php printList(getList($db), $db) ?>
+        <?php printList(getList($db, $startRow, $endRow), $db) ?>
         <tr>
           <td colspan="3" class="text-center">
-            <button class="btn" style="background: url(./img/home.png)"></button>
-            <button class="btn" style="background: url(./img/left.png)"></button>
-            <button class="btn" style="background: url(./img/right.png)"></button>
-            <button class="btn" style="background: url(./img/end.png)"></button>
+            <a href="?currentPage=first" class="btn">
+              <img src="./img/home.png" alt="home">
+            </a>
+            <a href="?currentPage=previous" class="btn">
+              <img src="./img/left.png" alt="left">
+            </a>
+            <a href="?currentPage=next" class="btn">
+              <img src="./img/right.png" alt="right">
+            </a>
+            <a href="?currentPage=last">
+              <img src="./img/end.png" alt="last">
+            </a>
           </td>
         </tr>
       </tbody>
