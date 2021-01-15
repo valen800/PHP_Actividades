@@ -1,4 +1,4 @@
-<?php require_once 'utils.php' ?>
+<?php require_once 'Media.php' ?>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
@@ -13,12 +13,12 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <?php echo getListMedia('audio'); ?>
+    <?php echo Media::getListMedia('audio'); ?>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <?php echo getListMedia('video'); ?>
+    <?php echo Media::getListMedia('video'); ?>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-    <?php echo getListMedia('image'); ?>
+    <?php echo Media::getListMedia('image'); ?>
   </div>
 </div>
