@@ -28,7 +28,7 @@ class Media {
         $imageList = '';
     
         foreach ($ficheros as $key => $value) {
-            $imageList .= '<img src="'.$path.$value.'" class="img-rounded" alt="img">'.PHP_EOL;
+            $imageList .= '<img src="'.$path.$value.'" alt="img">'.PHP_EOL;
         }
 
         return $imageList;

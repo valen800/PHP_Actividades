@@ -26,6 +26,8 @@
         echo $typeFile;
         $id = time();
 
+        log($typeFile);
+
         switch ($typeFile) {
             case strpos($typeFile, 'audio'):
                 return 'media/audio/'.$id.$nameFile;
