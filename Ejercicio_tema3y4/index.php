@@ -1,8 +1,3 @@
-<?php 
-  require_once 'utils.php';
-  require_once './db/db.php';
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,21 +20,13 @@
         </tr>
       </thead>
       <tbody>
-        <?php printList(getList($db, $startRow, $endRow), $db) ?>
+        <!-- rows -->
         <tr>
           <td colspan="3" class="text-center">
-            <a href="?currentPage=first" class="btn">
-              <img src="./img/home.png" alt="home">
-            </a>
-            <a href="?currentPage=previous" class="btn">
-              <img src="./img/left.png" alt="left">
-            </a>
-            <a href="?currentPage=next" class="btn">
-              <img src="./img/right.png" alt="right">
-            </a>
-            <a href="?currentPage=last">
-              <img src="./img/end.png" alt="last">
-            </a>
+            <img src="./img/home.png" alt="home">
+            <img src="./img/left.png" alt="left">
+            <img src="./img/right.png" alt="right">
+            <img src="./img/end.png" alt="last">
           </td>
         </tr>
       </tbody>
