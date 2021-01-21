@@ -1,7 +1,7 @@
 <?php
 
 class Statistics {
-    private static $mostra = array();
+    private $mostra = array();
 
     public function __construct($mostra) {
         $this->mostra = $mostra;
@@ -33,7 +33,19 @@ class Statistics {
     }
 
     public function getDesvTipica() {
+        $arrayMostra = $this->mostra;
+        $arrayLenght = count($arrayMostra);
+        $mitja = self::getMitja();
+        $total = 0;
+
+        foreach ($arrayMostra as $key => $value) {
+            $total += ($value - $mitja) * ($value - $mitja);
+        }
+
+        $varianza = $total / $arrayLenght;
+        $desvTipica = sqrt($varianza);
+
+        return $desvTipica;
     }
 }
-/* https://gist.github.com/evilnapsis/b9640384d3a56641441948d4ccf37d81 */
 ?>
