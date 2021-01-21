@@ -1,5 +1,10 @@
 <?php 
 
+require_once 'Audio.php';
+require_once 'Video.php';
+require_once 'Image.php';
+require_once 'Constants.php';
+
 class Media {
 
     public static function getListMedia($typeMedia) {
@@ -28,7 +33,7 @@ class Media {
         $imageList = '';
     
         foreach ($ficheros as $key => $value) {
-            $imageList .= '<img src="'.$path.$value.'" alt="img">'.PHP_EOL;
+            /* Object Image */
         }
 
         return $imageList;
@@ -37,31 +42,19 @@ class Media {
     private static function getVideos() {
         $path = './media/video/';
         $ficheros = array_diff(scandir($path), array('..','.'));
-
-        $videoList = '';
     
         foreach ($ficheros as $key => $value) {
-            $videoList .= '<video width="320" height="240" controls>'.PHP_EOL;
-            $videoList .= '<source src="'.$path.$value.'" type="video/mp4">'.PHP_EOL;
-            $videoList .= '</video>'.PHP_EOL;
+            /* Object Video */
         }
-
-        return $videoList;
     }
 
     private static function getAudios() {
         $path = './media/audio/';
         $ficheros = array_diff(scandir($path), array('..','.'));
-
-        $audiolist = '';
     
         foreach ($ficheros as $key => $value) {
-            $audiolist .= '<audio controls>'.PHP_EOL;
-            $audiolist .= '<source src="'.$path.$value.'" type="audio/mpeg">'.PHP_EOL;
-            $audiolist .= '</audio>'.PHP_EOL;
+            /* Object Audio */
         }
-
-        return $audiolist;
     }
 }
 

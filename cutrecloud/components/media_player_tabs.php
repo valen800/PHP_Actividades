@@ -1,4 +1,4 @@
-<?php require_once 'Media.php' ?>
+<?php require_once './Classes/Media.php' ?>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
