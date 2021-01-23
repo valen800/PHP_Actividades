@@ -1,6 +1,6 @@
 <?php
 
-function getNumPage($db) {
+/* function getNumPage($db) {
 
     $query = "SELECT id, nom, cognoms FROM contactes";
     $resultQuery = mysqli_query($db, $query);
@@ -10,9 +10,9 @@ function getNumPage($db) {
     $numPages = ceil($numRows / MAX_ROWS);
 
     return $numPages;
-}
+} */
 
-function getList($db, $start, $end) {
+/* function getList($db, $start, $end) {
     // We make the query
 
     $query = "SELECT id, nom, cognoms FROM contactes LIMIT $start,$end";
@@ -20,9 +20,9 @@ function getList($db, $start, $end) {
     checkErrorDatabase('Failed to make the query', $db);
 
     return $list;
-}
+} */
 
-function printList($result, $db) {
+/* function printList($result, $db) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<tr>';
@@ -34,21 +34,6 @@ function printList($result, $db) {
     }
     mysqli_free_result($result);
     mysqli_close($db);
-}
-
-function checkConnectionDatabase($message) {
-    if (mysqli_connect_errno() != 0) {
-        echo $message.': '.mysqli_connect_error();
-        exit();
-    }
-}
-
-function checkErrorDatabase($message, $connection) {
-    if (mysqli_errno($connection) != 0) {
-        echo $message.': '.mysqli_errno($connection);
-        mysqli_close($connection);
-        exit();
-    }
-}
+} */
 
 ?>
