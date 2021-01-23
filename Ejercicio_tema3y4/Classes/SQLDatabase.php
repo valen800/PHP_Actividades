@@ -10,7 +10,7 @@ class SQLDatabase {
 
     public function __construct(
         $servername = "localhost", $username="phpmyadmin", 
-        $password="phpmyadmin", $dbname) {
+        $password="phpmyadmin", $dbname="agenda") {
 
             $this->servername = $servername;
             $this->username = $username;
@@ -23,7 +23,7 @@ class SQLDatabase {
         $this->connection = new mysqli(
             $this->servername, $this->username, $this->password, $this->dbname);
         
-        checkConnectionDatabase($this->connection);
+        self::checkConnectionDatabase($this->connection);
 
         return $this->connection;
     }
