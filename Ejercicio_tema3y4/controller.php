@@ -5,11 +5,13 @@
     $database = new SQLDatabase();
     $conn = $database->connection();
 
-    // Dynamic Limit
     $limit = Constants::$MAX_ROWS_PAGE;
     // Get Data
     $data = $database->query("SELECT id FROM contactes");
     $numRows = $data->num_rows;
+
+
+    
     // Calculate total pages
     $totalPages = ceil($numRows / $limit);
     
@@ -19,6 +21,7 @@
 
     // Limit query
     $data = $database->query("SELECT id,nom,cognoms FROM contactes LIMIT $paginationStart,$limit");
+
 
 
     // Disconnect database
