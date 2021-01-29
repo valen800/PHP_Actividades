@@ -1,15 +1,44 @@
 <?php
 include_once "Constants.php";
+include_once "SQLDatabase.php";
 
 class Paginator {
 
     private $currentPage;
     private $limit;
+    private $totalRecords;
+    private $conn;
 
     public function __construct(
-        $limit = Constants::MAX_ROWS_PAGE, $currentPage) {
-            $this->currentPage = $currentPage;
+        $limit = Constants::MAX_ROWS_PAGE, $totalRecords) {
+            $this->conn = new SQLDatabase();
             $this->limit = $limit;
+            $this->totalRecords = $this->setTotalRecords();
+    }
+
+    public function getData() {
+        $start = 0;
+        
+        if ($this->getCurrentPage() > 1) {
+            $start = ($this->getCurrentPage() * $this->limit) - $this->limit;
+        }
+
+        $this->conn->connection();
+        $data = $this->conn->query("SELECT id,nom,cognoms FROM contactes LIMIT $paginationStart,$limit");
+        $this->conn->disconnect();
+
+        return $data->fetch_array(MYSQLI_ASSOC);
+    }
+
+    public function setTotalRecords() {
+
+        $this->conn->connection();
+        $data = $this->conn->query("SELECT id FROM contactes");
+        $this->conn->disconnect();
+
+        $numRows = $data->num_rows;
+
+        return $numRows;
     }
 
     public function getTotalPages($rows) {
@@ -17,14 +46,6 @@ class Paginator {
 
         $totalPages = ceil($numRows / $this->limit);
         return $totalPages;
-    }
-
-    public function nextPage() {
-        return $this->currentPage += 1;
-    }
-
-    public function previousPage() {
-        return $this->currentPage -= 1;
     }
 
     public function getCurrentPage() {
