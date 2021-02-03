@@ -1,5 +1,5 @@
 <?php
-    require_once 'classes.php';
+    require_once 'Statistics.php';
 
     $array = array(2,3,2,2,5,3,8,1,4);
     $array2 = array(5,5,4,3,2,2,1,7,6);
