@@ -1,5 +1,5 @@
 <?php
-  include_once "./Classes/Render.php";
+  include_once "./Classes/Pagination.php";
 ?>
 
 <!doctype html>
@@ -25,13 +25,13 @@
       </thead>
       <tbody>
         <!-- rows -->
-        <?php echo Render::renderData(); ?>
+        <?php //Render Data ?>
         <tr>
           <td colspan="3" class="text-center">
-            <img src="./img/home.png" alt="home">
-            <img src="./img/left.png" alt="left">
-            <img src="./img/right.png" alt="right">
-            <img src="./img/end.png" alt="last">
+            <a href="index.php?page=<?php // startPage ?>"><img src="./img/home.png" alt="home"></a>
+            <a href="index.php?page=<?php //next function ?>"><img src="./img/left.png" alt="left"></a>
+            <a href="index.php?page=<?php //previous function?>"><img src="./img/right.png" alt="right"></a>
+            <a href="index.php?page=<?php //Last Page ?>"><img src="./img/end.png" alt="last"></a>
           </td>
         </tr>
       </tbody>

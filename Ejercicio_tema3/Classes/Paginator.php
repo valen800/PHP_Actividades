@@ -16,6 +16,26 @@ class Paginator {
             $this->totalRecords = $this->setTotalRecords();
     }
 
+    public function renderData() {
+        // param true is for convert stdObject to array
+        $arr = json_decode($paginator->getData(), true);
+
+        foreach ($arr as $key => $value) {
+            echo '<tr>';
+            echo '<td>'.$value['id'].'</td>';
+            echo '<td>'.$value['nom'].' '.$value['cognoms'].'</td>';
+            echo '</tr>';
+        }
+    }
+
+    public function prev_page() {
+        return ($this->current_page() > 1) ? $this->current_page() : 1;
+    }
+
+    public function next_page(){
+        return ($this->current_page() < $this->get_pagination_number()) ? $this >current_page()+1 : $this->get_pagination_number();
+    }
+
     public function getData() {
         $start = 0;
         
@@ -55,5 +75,6 @@ class Paginator {
         return $this->currentPage;
     }
 }
-
+//https://steemit.com/utopian-io/@alfarisi94/pagination-with-php-oop-system-1-basic-oop-class-fetch-data-with-pdo-database-use-function-in-a-class
+//https://steemit.com/utopian-io/@alfarisi94/pagination-with-php-oop-system-2-create-the-previous-page-create-the-next-page-active-class-in-php
 ?>
