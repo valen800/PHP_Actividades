@@ -10,7 +10,7 @@ class Paginator {
     private $conn;
 
     public function __construct(
-        $limit = Constants::MAX_ROWS_PAGE, $totalRecords) {
+        $limit = Constants::MAX_ROWS_PAGE) {
             $this->conn = new SQLDatabase();
             $this->limit = $limit;
             $this->totalRecords = $this->setTotalRecords();
@@ -24,10 +24,11 @@ class Paginator {
         }
 
         $this->conn->connection();
-        $data = $this->conn->query("SELECT id,nom,cognoms FROM contactes LIMIT $paginationStart,$limit");
+        $data = $this->conn->query("SELECT id,nom,cognoms FROM contactes LIMIT $start,$this->limit");
         $this->conn->disconnect();
 
-        return $data->fetch_array(MYSQLI_ASSOC);
+        $json = mysqli_fetch_all($data, MYSQLI_ASSOC);
+        return json_encode($json);
     }
 
     public function setTotalRecords() {

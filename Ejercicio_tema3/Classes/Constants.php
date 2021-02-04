@@ -1,7 +1,7 @@
 <?php
 
 class Constants {
-    public static $MAX_ROWS_PAGE = 5;
+    public const MAX_ROWS_PAGE = 5;
 }
 
 ?>

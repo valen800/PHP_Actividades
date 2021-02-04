@@ -25,6 +25,7 @@
       </thead>
       <tbody>
         <!-- rows -->
+        <?php echo Render::renderData(); ?>
         <tr>
           <td colspan="3" class="text-center">
             <img src="./img/home.png" alt="home">
