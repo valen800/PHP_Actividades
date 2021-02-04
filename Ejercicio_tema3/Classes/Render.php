@@ -5,12 +5,15 @@
         
         public static function renderData() {
             $paginator = new Paginator();
+            // param true is for convert stdObject to array
             $arr = json_decode($paginator->getData(), true);
             
-            foreach ($arr as $key => $arr2) {
-                foreach ($arr2 as $key => $value) {
-                    print_r($value);
-                }
+
+            foreach ($arr as $key => $value) {
+                echo '<tr>';
+                echo '<td>'.$value['id'].'</td>';
+                echo '<td>'.$value['nom'].' '.$value['cognoms'].'</td>';
+                echo '</tr>';
             }
         }
     }
