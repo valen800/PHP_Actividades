@@ -1,5 +1,5 @@
 <?php
-  include_once "./Classes/Pagination.php";
+  include_once "./controller.php";
 ?>
 
 <!doctype html>
@@ -25,13 +25,13 @@
       </thead>
       <tbody>
         <!-- rows -->
-        <?php //Render Data ?>
+        <?php echo $pagination->renderData(); ?>
         <tr>
           <td colspan="3" class="text-center">
-            <a href="index.php?page=<?php // startPage ?>"><img src="./img/home.png" alt="home"></a>
-            <a href="index.php?page=<?php //next function ?>"><img src="./img/left.png" alt="left"></a>
-            <a href="index.php?page=<?php //previous function?>"><img src="./img/right.png" alt="right"></a>
-            <a href="index.php?page=<?php //Last Page ?>"><img src="./img/end.png" alt="last"></a>
+            <a href="index.php?page=<?php echo 1;// startPage ?>"><img src="./img/home.png" alt="home"></a>
+            <a href="index.php?page=<?php echo $pagination->prevPage();//previous function ?>"><img src="./img/left.png" alt="left"></a>
+            <a href="index.php?page=<?php echo $pagination->nextPage();//next function?>"><img src="./img/right.png" alt="right"></a>
+            <a href="index.php?page=<?php echo $pagination->getTotalPages($pagination->getTotalRecords());//Last Page ?>"><img src="./img/end.png" alt="last"></a>
           </td>
         </tr>
       </tbody>

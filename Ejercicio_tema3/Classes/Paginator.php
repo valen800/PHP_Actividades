@@ -18,7 +18,7 @@ class Paginator {
 
     public function renderData() {
         // param true is for convert stdObject to array
-        $arr = json_decode($paginator->getData(), true);
+        $arr = json_decode($this->getData(), true);
 
         foreach ($arr as $key => $value) {
             echo '<tr>';
@@ -28,15 +28,7 @@ class Paginator {
         }
     }
 
-    public function prev_page() {
-        return ($this->current_page() > 1) ? $this->current_page() : 1;
-    }
-
-    public function next_page(){
-        return ($this->current_page() < $this->get_pagination_number()) ? $this >current_page()+1 : $this->get_pagination_number();
-    }
-
-    public function getData() {
+    protected function getData() {
         $start = 0;
         
         if ($this->getCurrentPage() > 1) {
@@ -62,17 +54,48 @@ class Paginator {
         return $numRows;
     }
 
-    public function getTotalPages($rows) {
-        $numRows = $rows->num_rows;
+    public function getTotalRecords() {
+        return $this->totalRecords;
+    }
 
-        $totalPages = ceil($numRows / $this->limit);
+    public function getTotalPages($rows) {
+
+        $totalPages = ceil($rows / $this->limit);
         return $totalPages;
     }
 
-    public function getCurrentPage() {
+    protected function getCurrentPage() {
         $this->currentPage = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
 
         return $this->currentPage;
+    }
+
+    public function prevPage(){
+        $page = 0;
+        $currentPage = $this->getCurrentPage();
+        $totalPages = $this->getTotalPages($this->totalRecords);
+
+        if ($currentPage > 1) {
+            $page = $currentPage - 1;
+        } else {
+            $page = 1;
+        }
+
+        return $page;
+    }
+
+    public function nextPage(){
+        $page = 0;
+        $currentPage = $this->getCurrentPage();
+        $totalPages = $this->getTotalPages($this->totalRecords);
+
+        if ($currentPage < $totalPages) {
+            $page = $currentPage + 1;
+        } else {
+            $page = $totalPages;
+        }
+
+        return $page;
     }
 }
 //https://steemit.com/utopian-io/@alfarisi94/pagination-with-php-oop-system-1-basic-oop-class-fetch-data-with-pdo-database-use-function-in-a-class
