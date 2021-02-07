@@ -1,5 +1,5 @@
 <?php
-  include_once "./controller.php";
+  include_once "./paginator_controller.php";
 ?>
 
 <!doctype html>
@@ -19,7 +19,7 @@
     <table class="table table-bordered text-center">
       <thead>
         <tr class="text-right">
-          <th colspan="5"><?php echo $pagination->getPageCunterFormat() ?></th>
+          <th colspan="5"><?php echo $pagination->getPageCounterFormat() ?></th>
         </tr>
         <tr>
           <th><a href="index.php?sortByID=true&page=<?php echo $pagination->getCurrentPage() ?>">Id</a></th>

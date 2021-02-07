@@ -16,7 +16,7 @@ class Paginator {
             $this->totalRecords = $this->setTotalRecords();
     }
 
-    public function getPageCunterFormat() {
+    public function getPageCounterFormat() {
         $html = '';
         $currentPage = $this->getCurrentPage();
         $totalPages = $this->getTotalPages($this->totalRecords);

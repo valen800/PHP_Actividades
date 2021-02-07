@@ -11,44 +11,44 @@
   </head>
   <body>
     <div class="container">
-        <form action="" method="post">
+        <form action="form_controller.php" method="post">
             <fieldset class="mb-5">
                 <legend>Identification</legend>
                 <div class="form-inline">
                     <label class="mr-3" for="lName">Name: </label>
-                    <input class="mr-5" type="text" class="form-control" id="nameInput">
+                    <input class="mr-5" type="text" class="form-control" id="nameInput" name="name">
                     <label class="mr-3" for="lLastname">Lastname: </label>
-                    <input type="text" class="form-control" id="lastnameInput">
+                    <input type="text" class="form-control" id="lastnameInput" name="lastname">
                 </div>
             </fieldset>
             <fieldset class="mb-5">
                 <legend>Personal data</legend>
                 <div class="form-inline">
                     <label class="mr-3" for="lAddress">Address:</label>
-                    <input class="mr-5" type="text" class="form-control" id="addressInput">
+                    <input class="mr-5" type="text" class="form-control" id="addressInput" name="address">
                     <label class="mr-3" for="lPostalCode">Postal Code:</label>
-                    <input type="text" class="form-control" id="postalCodeInput">
+                    <input type="text" class="form-control" id="postalCodeInput" name="postalCode">
                 </div>
                 <div class="form-group">
                     <label for="lLocation">Location:</label>
-                    <input type="text" class="form-control" id="locationInput">
+                    <input type="text" class="form-control" id="locationInput" name="location">
                     <label for="lProvince">Province:</label>
-                    <input type="text" class="form-control" id="provinceInput">
+                    <input type="text" class="form-control" id="provinceInput" name="province">
                 </div>
             </fieldset>
             <fieldset class="mb-5">
                 <legend>Contact data</legend>
                 <div class="form-inline">
                     <label class="mr-3" for="lPhone1">Phone 1:</label>
-                    <input class="mr-3" type="text" class="form-control" id="Phone1Input">
+                    <input class="mr-3" type="text" class="form-control" id="Phone1Input" name="phone1">
                     <label class="mr-3" for="lPhone2">Phone 2:</label>
-                    <input class="mr-3" type="text" class="form-control" id="Phone2Input">
+                    <input class="mr-3" type="text" class="form-control" id="Phone2Input" name="phone2">
                     <label class="mr-3" for="lFax">Fax:</label>
-                    <input type="text" class="form-control" id="faxInput">
+                    <input type="text" class="form-control" id="faxInput" name="fax">
                 </div>
                 <div class="form-group">
                     <label for="lEmail">Email:</label>
-                    <input type="email" class="form-control" id="EmailInput">
+                    <input type="email" class="form-control" id="EmailInput" name="email">
                 </div>
             </fieldset>
             <div class="row">
