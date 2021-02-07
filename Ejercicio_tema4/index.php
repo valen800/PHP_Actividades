@@ -14,24 +14,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <div class="container">
+  <div class="container text-center">
     <h1>Contactes</h1>
-    <table class="table">
+    <table class="table table-bordered text-center">
       <thead>
+        <tr class="text-right">
+          <th colspan="5"><?php echo $pagination->getPageCunterFormat() ?></th>
+        </tr>
         <tr>
           <th><a href="index.php?sortByID=true&page=<?php echo $pagination->getCurrentPage() ?>">Id</a></th>
-          <th colspan="2"><a href="index.php?sortByName=true&page=<?php echo $pagination->getCurrentPage() ?>">Cognoms,nom</a></th>
+          <th><a href="index.php?sortByName=true&page=<?php echo $pagination->getCurrentPage() ?>">Cognoms,nom</a></th>
+          <th colspan="3">Manteniment</th>
         </tr>
       </thead>
       <tbody>
         <!-- rows -->
         <?php echo $pagination->renderData(); ?>
         <tr>
-          <td colspan="3" class="text-center">
+          <td colspan="2">
             <a href="index.php?page=<?php echo 1;// startPage ?>"><img src="./img/home.png" alt="home"></a>
             <a href="index.php?page=<?php echo $pagination->prevPage();//previous function ?>"><img src="./img/left.png" alt="left"></a>
             <a href="index.php?page=<?php echo $pagination->nextPage();//next function?>"><img src="./img/right.png" alt="right"></a>
             <a href="index.php?page=<?php echo $pagination->getTotalPages($pagination->getTotalRecords());//Last Page ?>"><img src="./img/end.png" alt="last"></a>
+          </td>
+          <td colspan="3">
+            <a href="#"><img src="./img/add.png" alt="addData"></a>
           </td>
         </tr>
       </tbody>

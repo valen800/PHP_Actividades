@@ -16,6 +16,16 @@ class Paginator {
             $this->totalRecords = $this->setTotalRecords();
     }
 
+    public function getPageCunterFormat() {
+        $html = '';
+        $currentPage = $this->getCurrentPage();
+        $totalPages = $this->getTotalPages($this->totalRecords);
+
+        $html = '<div>Página: '.$currentPage.'/'.$totalPages.'</div>';
+
+        return $html;
+    }
+
     public function renderData() {
         // param true is for convert stdObject to array
         $arr = json_decode($this->getData(), true);
@@ -24,6 +34,9 @@ class Paginator {
             echo '<tr>';
             echo '<td>'.$value['id'].'</td>';
             echo '<td>'.$value['nom'].' '.$value['cognoms'].'</td>';
+            echo '<td><a href="#"><img src="./img/view.png" height="20" width="20"/></a></td>';
+            echo '<td><a href="#"><img src="./img/edit.png" height="20" width="20"/></a></td>';
+            echo '<td><a href="#"><img src="./img/remove.png" height="20" width="20"/></a></td>';
             echo '</tr>';
         }
         unset($_GET['sortByID']);
