@@ -26,17 +26,24 @@ class Paginator {
             echo '<td>'.$value['nom'].' '.$value['cognoms'].'</td>';
             echo '</tr>';
         }
+        unset($_GET['sortByID']);
+        unset($_GET['sortByName']);
     }
 
     protected function getData() {
         $start = 0;
+        $orderByValue = "";
+
+
+        isset($_GET['sortByID']) ? $orderByValue = "id" : $orderByValue = "id";
+        isset($_GET['sortByName']) ? $orderByValue = "nom, cognoms" : $orderByValue = "id";
         
         if ($this->getCurrentPage() > 1) {
             $start = ($this->getCurrentPage() * $this->limit) - $this->limit;
         }
 
         $this->conn->connection();
-        $data = $this->conn->query("SELECT id,nom,cognoms FROM contactes LIMIT $start,$this->limit");
+        $data = $this->conn->query("SELECT id,nom,cognoms FROM contactes ORDER BY $orderByValue LIMIT $start,$this->limit ");
         $this->conn->disconnect();
 
         $json = mysqli_fetch_all($data, MYSQLI_ASSOC);
@@ -64,7 +71,7 @@ class Paginator {
         return $totalPages;
     }
 
-    protected function getCurrentPage() {
+    public function getCurrentPage() {
         $this->currentPage = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
 
         return $this->currentPage;

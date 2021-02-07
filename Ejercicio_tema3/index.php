@@ -19,8 +19,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th><button class="btn">Id</button></th>
-          <th colspan="2"><button class="btn">Cognoms,nom</button></th>
+          <th><a href="index.php?sortByID=true&page=<?php echo $pagination->getCurrentPage() ?>">Id</a></th>
+          <th colspan="2"><a href="index.php?sortByName=true&page=<?php echo $pagination->getCurrentPage() ?>">Cognoms,nom</a></th>
         </tr>
       </thead>
       <tbody>
