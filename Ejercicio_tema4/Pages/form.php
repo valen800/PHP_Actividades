@@ -11,12 +11,12 @@
   </head>
   <body>
     <div class="container">
-        <form action="form_controller.php" method="post">
+        <form action="../form_controller.php" method="post">
             <fieldset class="mb-5">
                 <legend>Identification</legend>
                 <div class="form-inline">
                     <label class="mr-3" for="lName">Name: </label>
-                    <input class="mr-5" type="text" class="form-control" id="nameInput" name="name">
+                    <input class="mr-5" type="text" class="form-control" id="nameInput" name="name" required>
                     <label class="mr-3" for="lLastname">Lastname: </label>
                     <input type="text" class="form-control" id="lastnameInput" name="lastname">
                 </div>

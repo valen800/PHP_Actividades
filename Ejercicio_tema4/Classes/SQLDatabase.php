@@ -44,6 +44,14 @@ class SQLDatabase {
         }
     }
 
+    public function insert($obj) {
+        print_r($obj);
+    }
+
+    public function delete() {
+
+    }
+
     // Check connection database
     protected function checkConnectionDatabase($connection) {
         if ($connection->connect_errno) {
