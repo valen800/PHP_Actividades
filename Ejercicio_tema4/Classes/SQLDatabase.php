@@ -1,4 +1,5 @@
 <?php
+include_once "Person.php";
 
 class SQLDatabase {
 
@@ -45,7 +46,14 @@ class SQLDatabase {
     }
 
     public function insert($obj) {
-        print_r($obj);
+        $conn = $this->connection;
+        $queryString = 'INSERT INTO contactes (nom, cognoms, direccio, localitat, provincia, cp, telefon1, telefon2, fax, mail) VALUES ("'. $obj->getName() .'","'.$obj->getLastname().'","'.$obj->getAddress().'","'.$obj->getLocation().'","'.$obj->getProvince().'","'.$obj->getPostalCode().'","'.$obj->getPhone1().'","'.$obj->getPhone2().'","'.$obj->getFax().'","'.$obj->getEmail().'");';
+        
+        if ($conn->query($queryString)) {
+            echo "Succesful";
+        } else {
+            echo "Error";
+        }
     }
 
     public function delete() {

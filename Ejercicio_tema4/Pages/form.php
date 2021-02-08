@@ -18,7 +18,7 @@
                     <label class="mr-3" for="lName">Name: </label>
                     <input class="mr-5" type="text" class="form-control" id="nameInput" name="name" required>
                     <label class="mr-3" for="lLastname">Lastname: </label>
-                    <input type="text" class="form-control" id="lastnameInput" name="lastname">
+                    <input type="text" class="form-control" id="lastnameInput" name="lastname" required>
                 </div>
             </fieldset>
             <fieldset class="mb-5">
