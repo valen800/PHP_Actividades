@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-        <form action="../form_controller.php" method="post">
+        <form action="../form_controller_insert.php" method="post">
             <fieldset class="mb-5">
                 <legend>Identification</legend>
                 <div class="form-inline">
@@ -53,13 +53,7 @@
             </fieldset>
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-info">Submit</button>
-                </div>
-                <div class="col">
-                    <button type="reset" class="btn btn-warning">Reset</button>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-danger align-left">Cancel</button>
+                    <button type="submit" class="btn btn-info">Close</button>
                 </div>
             </div>
         </form>

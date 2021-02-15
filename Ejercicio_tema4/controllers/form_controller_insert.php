@@ -1,6 +1,6 @@
 <?php
-include_once './Classes/Person.php';
-include_once './Classes/SQLDatabase.php';
+include_once '../Classes/Person.php';
+include_once '../Classes/SQLDatabase.php';
 
     !(isset($_POST['name'])) || empty($_POST['name']) ? $name = "DefaultName" : $name = $_POST['name'];
     !(isset($_POST['lastname'])) || empty($_POST['lastname']) ? $lastname = "DefaultLastname" : $lastname = $_POST['lastname'];;
@@ -18,10 +18,10 @@ include_once './Classes/SQLDatabase.php';
 
     $conn->connection();
     if ($conn->insert($person)) {
-
+        echo "Dato insertado";
     }
     $conn->disconnect();
 
-    header('index.php');
+    header('Location:../index.php');
     exit;
 ?>

@@ -1,5 +1,5 @@
 <?php
-  include_once "./paginator_controller.php";
+  include_once "./controllers/paginator_controller.php";
 ?>
 
 <!doctype html>
@@ -38,7 +38,7 @@
             <a href="index.php?page=<?php echo $pagination->getTotalPages($pagination->getTotalRecords());//Last Page ?>"><img src="./img/end.png" alt="last"></a>
           </td>
           <td colspan="3">
-            <a href="./Pages/form.php"><img src="./img/add.png" alt="addData"></a>
+            <a href="./forms/form_insert.php"><img src="./img/add.png" alt="addData"></a>
           </td>
         </tr>
       </tbody>
