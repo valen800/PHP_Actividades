@@ -59,7 +59,7 @@
                     <button type="reset" class="btn btn-warning">Reset</button>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-danger align-left">Cancel</button>
+                    <button type="button" class="btn btn-danger align-left"><a href="../index.php">Cancel</a></button>
                 </div>
             </div>
         </form>

@@ -56,8 +56,26 @@ class SQLDatabase {
         }
     }
 
-    public function delete() {
+    public function update($obj, $id) {
+        $conn = $this->connection;
+        $queryString = "UPDATE contactes SET nom='".$obj->getName()."',cognoms='".$obj->getLastname()."',direccio='".$obj->getAddress()."',localitat='".$obj->getLocation()."',provincia='".$obj->getProvince()."',cp='".$obj->getPostalCode()."',telefon1='".$obj->getPhone1()."',telefon2='".$obj->getPhone2()."',fax='".$obj->getFax()."',mail='".$obj->getEmail()."' WHERE id=".$id.";";
+        
+        if ($conn->query($queryString)) {
+            echo "Succesful";
+        } else {
+            echo "Error";
+        }
+    }
 
+    public function delete($id) {
+        $conn = $this->connection;
+        $queryString = "DELETE FROM contactes WHERE id=".$id.";";
+        
+        if ($conn->query($queryString)) {
+            echo "Succesful";
+        } else {
+            echo "Error";
+        }
     }
 
     // Check connection database

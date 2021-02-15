@@ -34,9 +34,9 @@ class Paginator {
             echo '<tr>';
             echo '<td>'.$value['id'].'</td>';
             echo '<td>'.$value['nom'].' '.$value['cognoms'].'</td>';
-            echo '<td><a href="#"><img src="./img/view.png" height="20" width="20"/></a></td>';
-            echo '<td><a href="#"><img src="./img/edit.png" height="20" width="20"/></a></td>';
-            echo '<td><a href="#"><img src="./img/remove.png" height="20" width="20"/></a></td>';
+            echo '<td><a href="forms/form_view.php?id='.$value['id'].'"><img src="./img/view.png" height="20" width="20"/></a></td>';
+            echo '<td><a href="forms/form_edit.php?id='.$value['id'].'"><img src="./img/edit.png" height="20" width="20"/></a></td>';
+            echo '<td><a href="controllers/controller_remove.php?id='.$value['id'].'"><img src="./img/remove.png" height="20" width="20"/></a></td>';
             echo '</tr>';
         }
         unset($_GET['sortByID']);
@@ -46,7 +46,6 @@ class Paginator {
     protected function getData() {
         $start = 0;
         $orderByValue = "";
-
 
         isset($_GET['sortByID']) ? $orderByValue = "id" : $orderByValue = "id";
         isset($_GET['sortByName']) ? $orderByValue = "nom, cognoms" : $orderByValue = "id";

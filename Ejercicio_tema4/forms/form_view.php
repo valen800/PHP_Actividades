@@ -1,3 +1,14 @@
+<?php 
+include_once '../Classes/SQLDatabase.php';
+
+    $conn = new SQLDatabase();
+    $conn->connection();
+    $data = $conn->query('SELECT nom,cognoms,direccio,localitat,provincia,cp,telefon1,telefon2,fax,mail FROM contactes WHERE id='.$_GET['id'].'');
+    $conn->disconnect();
+
+    $arr = mysqli_fetch_all($data, MYSQLI_ASSOC);
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,44 +22,44 @@
   </head>
   <body>
     <div class="container">
-        <form action="../form_controller_insert.php" method="post">
+        <form action="../index.php" method="post">
             <fieldset class="mb-5">
                 <legend>Identification</legend>
                 <div class="form-inline">
                     <label class="mr-3" for="lName">Name: </label>
-                    <input class="mr-5" type="text" class="form-control" id="nameInput" name="name" required>
+                    <input class="mr-5" type="text" class="form-control" id="nameInput" name="name" value="<?php echo $arr[0]['nom'] ?>" disabled>
                     <label class="mr-3" for="lLastname">Lastname: </label>
-                    <input type="text" class="form-control" id="lastnameInput" name="lastname" required>
+                    <input type="text" class="form-control" id="lastnameInput" name="lastname" value="<?php echo $arr[0]['cognoms'] ?>" disabled>
                 </div>
             </fieldset>
             <fieldset class="mb-5">
                 <legend>Personal data</legend>
                 <div class="form-inline">
                     <label class="mr-3" for="lAddress">Address:</label>
-                    <input class="mr-5" type="text" class="form-control" id="addressInput" name="address">
+                    <input class="mr-5" type="text" class="form-control" id="addressInput" name="address"  value="<?php echo $arr[0]['direccio'] ?>" disabled>
                     <label class="mr-3" for="lPostalCode">Postal Code:</label>
-                    <input type="text" class="form-control" id="postalCodeInput" name="postalCode">
+                    <input type="text" class="form-control" id="postalCodeInput" name="postalCode" value="<?php echo $arr[0]['cp'] ?>" disabled>
                 </div>
                 <div class="form-group">
                     <label for="lLocation">Location:</label>
-                    <input type="text" class="form-control" id="locationInput" name="location">
+                    <input type="text" class="form-control" id="locationInput" name="location" value="<?php echo $arr[0]['localitat'] ?>" disabled>
                     <label for="lProvince">Province:</label>
-                    <input type="text" class="form-control" id="provinceInput" name="province">
+                    <input type="text" class="form-control" id="provinceInput" name="province" value="<?php echo $arr[0]['provincia'] ?>" disabled>
                 </div>
             </fieldset>
             <fieldset class="mb-5">
                 <legend>Contact data</legend>
                 <div class="form-inline">
                     <label class="mr-3" for="lPhone1">Phone 1:</label>
-                    <input class="mr-3" type="text" class="form-control" id="Phone1Input" name="phone1">
+                    <input class="mr-3" type="text" class="form-control" id="Phone1Input" name="phone1" value="<?php echo $arr[0]['telefon1'] ?>" disabled>
                     <label class="mr-3" for="lPhone2">Phone 2:</label>
-                    <input class="mr-3" type="text" class="form-control" id="Phone2Input" name="phone2">
+                    <input class="mr-3" type="text" class="form-control" id="Phone2Input" name="phone2" value="<?php echo $arr[0]['telefon2'] ?>" disabled>
                     <label class="mr-3" for="lFax">Fax:</label>
-                    <input type="text" class="form-control" id="faxInput" name="fax">
+                    <input type="text" class="form-control" id="faxInput" name="fax" value="<?php echo $arr[0]['fax'] ?>" disabled>
                 </div>
                 <div class="form-group">
                     <label for="lEmail">Email:</label>
-                    <input type="email" class="form-control" id="EmailInput" name="email">
+                    <input type="email" class="form-control" id="EmailInput" name="email" value="<?php echo $arr[0]['mail'] ?>" disabled>
                 </div>
             </fieldset>
             <div class="row">
